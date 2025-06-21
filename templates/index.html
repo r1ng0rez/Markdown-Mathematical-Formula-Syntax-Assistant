@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown公式速查表</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="py-4 bg-primary text-white rounded-bottom shadow">
+            <div class="container">
+                <h1 class="display-4"><i class="bi bi-calculator"></i> Markdown公式速查表</h1>
+                <p class="lead">快速查找和复制LaTeX数学公式</p>
+                <div class="updated text-light"><i class="bi bi-clock"></i> 最后更新: {{ updated }}</div>
+            </div>
+        </header>
+
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="card sticky-top mb-4" style="top: 20px;">
+                    <div class="card-header bg-primary text-white">
+                        <h5><i class="bi bi-search"></i> 搜索公式</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <input type="text" id="searchInput" class="form-control" placeholder="输入关键词...">
+                            <button class="btn btn-outline-primary" type="button" id="searchBtn">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                        <div id="searchResults" class="list-group" style="max-height: 300px; overflow-y: auto;"></div>
+                    </div>
+                    <div class="card-footer">
+                        <h5>分类导航</h5>
+                        <div class="list-group">
+                            {% for category in formulas.keys() %}
+                            <a href="#{{ category }}" class="list-group-item list-group-item-action">
+                                <i class="bi bi-chevron-right"></i> {{ category }}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                {% for category, items in formulas.items() %}
+                <section id="{{ category }}" class="mb-5">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-light">
+                            <h2 class="h4 mb-0">
+                                <i class="bi bi-collection"></i> {{ category }}
+                            </h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                {% for name, formula in items %}
+                                <div class="col-md-6 mb-3">
+                                    <div class="formula-card card h-100">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ name }}</h5>
+                                            <div class="formula-code mb-2">
+                                                <code>{{ formula }}</code>
+                                                <button class="btn btn-sm btn-outline-secondary copy-btn"
+                                                        data-clipboard-text="{{ formula }}"
+                                                        title="复制到剪贴板">
+                                                    <i class="bi bi-clipboard"></i>
+                                                </button>
+                                            </div>
+                                            <div class="formula-preview">
+                                                \( {{ formula }} \)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {% endfor %}
+            </div>
+        </div>
+
+        <footer class="py-4 mt-4 bg-light rounded-top shadow">
+            <div class="container text-center">
+                <p class="mb-0">© 2023 Markdown公式速查表 | 使用Flask和MathJax构建</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

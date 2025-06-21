@@ -1,0 +1,60 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+    margin-bottom: 2rem;
+}
+
+.formula-card {
+    transition: all 0.3s ease;
+    border: 1px solid #dee2e6;
+}
+
+.formula-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.formula-code {
+    position: relative;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.formula-code .copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.formula-code:hover .copy-btn {
+    opacity: 1;
+}
+
+.formula-preview {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#searchResults .list-group-item {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#searchResults .list-group-item:hover {
+    background-color: #e9ecef;
+}
+
+@media (max-width: 768px) {
+    .formula-card {
+        margin-bottom: 15px;
+    }
+}
