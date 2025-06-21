@@ -28,4 +28,4 @@ markdown-formula-cheatsheet/
 
 针对发现的问题以及添加新的公式及公式分类，直接修改并提交 Pull request 即可。
 
-在写新公式时，请复制并修改已有的公式模板
+在写新公式时，请复制并修改已有的公式模板：[公式模板](https://github.com/r1ng0rez/Markdown-Mathematical-Formula-Syntax-Assistant/blob/master/%E5%85%AC%E5%BC%8F%E6%A8%A1%E6%9D%BF%E5%AE%9E%E4%BE%8B.md)
