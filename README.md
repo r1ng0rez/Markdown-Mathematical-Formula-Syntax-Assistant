@@ -14,6 +14,7 @@ pip install flask
 ```
 之后运行`main.py`即可，访问你的`localhost:port`就可以啦！
 这是此项目的结构：
+```
 markdown-formula-cheatsheet/
 ├── app.py                 # Flask主程序
 ├── static/                # 静态文件
@@ -23,7 +24,7 @@ markdown-formula-cheatsheet/
 │       └── script.js      # 自定义JavaScript
 └── templates/
     └── index.html         # 主模板文件
-
+```
 ## 如何贡献
 
 针对发现的问题以及添加新的公式及公式分类，直接修改并提交 Pull request 即可。
